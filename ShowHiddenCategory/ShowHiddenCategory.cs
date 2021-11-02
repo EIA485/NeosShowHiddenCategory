@@ -10,7 +10,7 @@ namespace ShowHiddenCategory
 	{
 		public override string Name => "ShowHiddenCategory";
 		public override string Author => "eia485";
-		public override string Version => "1.0.0";
+		public override string Version => "1.1.0";
 		public override string Link => "https://github.com/EIA485/NeosShowHiddenCategory/";
 		public override void OnEngineInit()
 		{
@@ -26,7 +26,7 @@ namespace ShowHiddenCategory
 				var codes = new List<CodeInstruction>(instructions);
 				for (int i = 0; i < codes.Count; i++)
 				{
-					if (codes[i].opcode.OperandType == OperandType.InlineString & codes[i].operand?.ToString() == "Hidden")
+					if (codes[i].opcode == OpCodes.Ldstr & codes[i].operand == "Hidden")
 					{
 						for (int si = i - 1; si <i+3; si++)
 						{
